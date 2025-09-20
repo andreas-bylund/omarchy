@@ -172,7 +172,7 @@ show_wallpaper_pack_menu() {
 }
 
 show_setup_menu() {
-  local options="  Audio\n  Wifi\n󰂯  Bluetooth\n󱐋  Power Profile\n󰍹  Monitors"
+  local options="  Audio\n  Wifi\n󱐋  Power Profile\n󰍹  Monitors"
   [ -f ~/.config/hypr/bindings.conf ] && options="$options\n  Keybindings"
   [ -f ~/.config/hypr/input.conf ] && options="$options\n  Input"
   options="$options\n  Defaults\n󰱔  DNS\n  Security\n  Config"
@@ -182,10 +182,6 @@ show_setup_menu() {
   *Wifi*)
     rfkill unblock wifi
     omarchy-launch-wifi
-    ;;
-  *Bluetooth*)
-    rfkill unblock bluetooth
-    blueberry
     ;;
   *Power*) show_setup_power_menu ;;
   *Monitors*) open_in_editor ~/.config/hypr/monitors.conf ;;
@@ -430,9 +426,8 @@ show_update_config_menu() {
 }
 
 show_update_hardware_menu() {
-  case $(menu "Restart" "󱚾  Wi-Fi\n󰂯  Bluetooth") in
+  case $(menu "Restart" "󱚾  Wi-Fi") in
   *Wi-Fi*) present_terminal omarchy-restart-wifi ;;
-  *Bluetooth*) present_terminal omarchy-restart-bluetooth ;;
   *) show_update_menu ;;
   esac
 }
