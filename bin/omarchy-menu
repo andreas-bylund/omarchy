@@ -142,7 +142,7 @@ show_toggle_menu() {
 }
 
 show_style_menu() {
-  case $(menu "Style" "󰸌  Theme\n  Font\n  Wallpaper Pack\n  Background\n  Hyprland\n󱄄  Screensaver\n  About") in
+  case $(menu "Style" "Theme\nFont\nWallpaper Pack\nBackground\nHyprland\nScreensaver\nAbout") in
   *Theme*) show_theme_menu ;;
   *Font*) show_font_menu ;;
   *"Wallpaper Pack"*) show_wallpaper_pack_menu ;;
